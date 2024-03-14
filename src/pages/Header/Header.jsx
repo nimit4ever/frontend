@@ -17,13 +17,13 @@ const Header = () => {
   return (
     <>
       <Navbar className="mx-auto p-2 rounded-xl">
-        <div className="grid grid-cols-3 items-center justify-item-between text-blue-gray-900">
-          <IconButton variant="text" color="blue-gray" size="md" onClick={openNavDrawer} className="mx-2">
+        <div className="grid grid-cols-3 items-center justify-item-between">
+          <IconButton variant="text" size="md" onClick={openNavDrawer} className="mx-2 text-blue-gray-700">
             {isNavOpen ? <FontAwesomeIcon icon={faXmark} className="text-2xl" /> : <FontAwesomeIcon icon={faBars} className="text-2xl" />}
           </IconButton>
 
-          <Button variant="text" color="blue-gray" className="flex items-center rounded-full p-0.5 justify-self-center">
-            <Avatar variant="circular" size="md" alt="DB6" className="border border-gray-800 p-0.5" src="/logo.png" />
+          <Button variant="text" className="flex items-center rounded-full p-0.5 justify-self-center text-blue-gray-700">
+            <Avatar variant="circular" size="md" alt="DB6" className="border border-blue-gray-800 p-0.5" src="/logo.png" />
             <span className="mx-2 hidden md:block text-2xl"> DB6 </span>
           </Button>
 
@@ -36,7 +36,7 @@ const Header = () => {
       </Drawer>
 
       <Drawer open={isCartOpen} onClose={closeCartDrawer} placement="right">
-        CartDrawer
+        Cart
       </Drawer>
     </>
   );

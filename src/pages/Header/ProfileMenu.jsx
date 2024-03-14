@@ -31,8 +31,8 @@ const ProfileMenu = () => {
   return (
     <Menu open={isMenuOpen} handler={setIsMenuOpen} placement="bottom-end">
       <MenuHandler>
-        <Button variant="text" color="blue-gray" className="flex items-center rounded-full p-0.5">
-          <Avatar variant="circular" size="sm" alt="tania andrew" className="border border-cyan-800 p-0.5" src="/profilePhoto.png" />
+        <Button variant="text" className="hidden md:flex items-center rounded-full p-0.5 text-blue-gray-700">
+          <Avatar variant="circular" size="sm" alt="tania andrew" className="border border-blue-gray-800 p-0.5" src="/profilePhoto.png" />
         </Button>
       </MenuHandler>
       <MenuList className="p-1">
@@ -46,10 +46,10 @@ const ProfileMenu = () => {
                 isLastItem ? "hover:bg-red-500/10 focus:bg-red-500/10 active:bg-red-500/10" : ""
               }`}
             >
-              <Typography as="span" variant="small" className="font-normal" color={isLastItem ? "red" : "inherit"}>
+              <Typography as="span" variant="small" className={isLastItem ? "text-red-800" : ""}>
                 <FontAwesomeIcon icon={icon} />
               </Typography>
-              <Typography as="span" variant="small" className="font-normal" color={isLastItem ? "red" : "inherit"}>
+              <Typography as="span" variant="small" className={isLastItem ? "text-red-800" : ""}>
                 {label}
               </Typography>
             </MenuItem>

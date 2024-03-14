@@ -31,12 +31,11 @@ const NavList = ({ openCartDrawer }) => {
         <Button
           key={label}
           variant="text"
-          color="blue-gray"
-          className="p-2 flex items-center gap-2"
+          className="flex items-center p-2 gap-2 text-blue-gray-700"
           onClick={label === "Cart" ? openCartDrawer : null}
         >
-          <FontAwesomeIcon icon={icon} className="text-lg lg:inherit" />
-          <span className="hidden 2xl:block"> {label}</span>
+          <FontAwesomeIcon icon={icon} className="text-lg" />
+          <span className="hidden xl:block"> {label}</span>
         </Button>
       ))}
       <ProfileMenu />
