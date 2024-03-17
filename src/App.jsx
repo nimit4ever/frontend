@@ -7,7 +7,7 @@ const App = () => {
       <div className="mx-auto w-full">
         <Header></Header>
         <Routes>
-          <Route path="/products" element={<ProductsPage />} />
+          <Route path="/" element={<ProductsPage />} />
         </Routes>
         <Footer></Footer>
       </div>
