@@ -31,8 +31,14 @@ const ProfileMenu = () => {
   return (
     <Menu open={isMenuOpen} handler={setIsMenuOpen} placement="bottom-end">
       <MenuHandler>
-        <Button variant="text" className="hidden md:flex items-center rounded-full p-0.5 text-blue-gray-700">
-          <Avatar variant="circular" size="sm" alt="tania andrew" className="border border-blue-gray-800 p-0.5" src="/profilePhoto.png" />
+        <Button variant="text" className="hidden items-center rounded-full p-0.5 text-blue-gray-700 md:flex">
+          <Avatar
+            variant="circular"
+            size="sm"
+            alt="tania andrew"
+            className="border border-blue-gray-800 p-0.5"
+            src="/profilePhoto.png"
+          />
         </Button>
       </MenuHandler>
       <MenuList className="p-1">

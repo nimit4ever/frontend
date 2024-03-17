@@ -31,7 +31,7 @@ const NavList = ({ openCartDrawer }) => {
         <Button
           key={label}
           variant="text"
-          className="flex items-center p-2 gap-2 text-blue-gray-700"
+          className="flex items-center gap-2 p-2 text-blue-gray-700"
           onClick={label === "Cart" ? openCartDrawer : null}
         >
           <FontAwesomeIcon icon={icon} className="text-lg" />

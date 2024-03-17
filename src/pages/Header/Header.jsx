@@ -1,4 +1,4 @@
-import { useState } from "react";
+import React, { useState } from "react";
 import { Navbar, Drawer, Avatar, Button, IconButton } from "@material-tailwind/react";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faBars, faXmark } from "@fortawesome/free-solid-svg-icons";
@@ -16,15 +16,28 @@ const Header = () => {
 
   return (
     <>
-      <Navbar className="mx-auto p-2 rounded-xl">
-        <div className="grid grid-cols-3 items-center justify-item-between">
+      <Navbar
+        className="sticky top-0 z-40 mx-auto mb-3 rounded-b-md bg-gradient-to-t from-transparent to-blue-gray-50 p-2"
+        fullWidth
+      >
+        <div className="justify-item-between grid grid-cols-3 items-center">
           <IconButton variant="text" size="md" onClick={openNavDrawer} className="mx-2 text-blue-gray-700">
-            {isNavOpen ? <FontAwesomeIcon icon={faXmark} className="text-2xl" /> : <FontAwesomeIcon icon={faBars} className="text-2xl" />}
+            {isNavOpen ? (
+              <FontAwesomeIcon icon={faXmark} className="text-2xl" />
+            ) : (
+              <FontAwesomeIcon icon={faBars} className="text-2xl" />
+            )}
           </IconButton>
 
-          <Button variant="text" className="flex items-center rounded-full p-0.5 justify-self-center text-blue-gray-700">
-            <Avatar variant="circular" size="md" alt="DB6" className="border border-blue-gray-800 p-0.5" src="/logo.png" />
-            <span className="mx-2 hidden md:block text-2xl"> DB6 </span>
+          <Button variant="text" className="flex items-center justify-self-center rounded-md p-0.5 text-blue-gray-700">
+            <Avatar
+              variant="circular"
+              size="md"
+              alt="DB6"
+              className="border border-blue-gray-800 p-0.5"
+              src="/logo.png"
+            />
+            <span className="mx-2 hidden text-2xl md:block"> DB6 </span>
           </Button>
 
           <NavList openCartDrawer={openCartDrawer} />

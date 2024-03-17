@@ -1,10 +1,17 @@
-import { Header } from "./pages";
+import { Header, Footer, ProductsPage } from "./pages";
+import { BrowserRouter, Routes, Route } from "react-router-dom";
 
 const App = () => {
   return (
-    <>
-      <Header> </Header>
-    </>
+    <BrowserRouter>
+      <div className="mx-auto w-full">
+        <Header></Header>
+        <Routes>
+          <Route path="/products" element={<ProductsPage />} />
+        </Routes>
+        <Footer></Footer>
+      </div>
+    </BrowserRouter>
   );
 };
 
