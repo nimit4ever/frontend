@@ -7,7 +7,7 @@ const currentYear = new Date().getFullYear();
 
 const Footer = () => {
   return (
-    <footer className="relative mx-6">
+    <footer className="relative w-full px-6">
       <div className="mt-12 flex w-full flex-col items-center justify-center border-t border-blue-gray-50 py-4 md:flex-row md:justify-between">
         <Typography variant="small" className="mb-4 text-center font-normal text-blue-gray-900 md:mb-0">
           &copy; {currentYear} <a href="#">DB6</a> All Rights Reserved.
