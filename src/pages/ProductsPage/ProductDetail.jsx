@@ -21,6 +21,7 @@ const ProductDetail = () => {
   const params = useParams();
   const { data, isLoading } = useGetProductDetailsQuery(params);
   if (!data) return;
+  console.log(data);
   const product = data[0];
   return (
     <>
