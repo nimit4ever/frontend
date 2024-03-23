@@ -19,8 +19,9 @@ import { useParams } from "react-router-dom";
 
 const ProductDetail = () => {
   const params = useParams();
-  const { data: product, isLoading } = useGetProductDetailsQuery(params);
-  if (!product) return;
+  const { data, isLoading } = useGetProductDetailsQuery(params);
+  if (!data) return;
+  const product = data[0];
   return (
     <>
       {!isLoading && (
