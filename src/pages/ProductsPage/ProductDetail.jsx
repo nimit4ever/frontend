@@ -13,35 +13,53 @@ import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faHeart as heartLine, faStar as starLine } from "@fortawesome/free-regular-svg-icons";
 import { faHeart as heartFilled, faStar as starFilled } from "@fortawesome/free-solid-svg-icons";
 
-import { MetaData } from "../../../components/index.js";
+import { MetaData, StarRating, AmountShow } from "../../../components/index.js";
 import { useGetProductDetailsQuery } from "../../../redux/api/productsApi.js";
 import { useParams } from "react-router-dom";
+import ImageGallery from "./ImageGallery.jsx";
 
 const ProductDetail = () => {
   const params = useParams();
   const { data, isLoading } = useGetProductDetailsQuery(params);
   if (!data) return;
-  console.log(data);
   const product = data[0];
   return (
     <>
       {!isLoading && (
         <>
           <MetaData title={product?.title} />
-          <div className="container mx-auto p-2">
-            <Card className="mx-auto h-auto w-full max-w-lg rounded-none shadow duration-300 hover:shadow-lg">
-              <CardHeader className="m-0  rounded-none shadow-none">
-                <img src={product?.image} alt="card-image" className="h-full w-full object-cover" />
-                {product?.discount && (
-                  <span className="absolute left-0 top-0 rounded-br-lg bg-red-800 p-1.5 text-center text-xs font-light text-white">
-                    {`${product?.discount}% OFF`}
-                  </span>
-                )}
-                {product?.newArrival && (
-                  <span className="absolute left-0 top-0 rounded-br-lg bg-pink-300 p-1.5 text-center text-xs font-extralight text-white">
-                    {`NEW ARRIVAL`}
-                  </span>
-                )}
+          <div className="m-1 grid grid-cols-1 gap-2 lg:grid-cols-2">
+            <ImageGallery image={product?.image}></ImageGallery>
+
+            <Card className="self-start">
+              <CardHeader floated={false} shadow={false} className="text-center lg:text-left">
+                <h3 className="uppercase">{product?.title}</h3>
+                <h6 className="">
+                  <span>{product?.rating?.rate}</span>
+                  <StarRating value={product?.rating?.rate} readonly className="" />
+                </h6>
+                <h6>{`${product?.rating?.count} Reviews`}</h6>
+
+                <div className="flex flex-row items-center gap-2">
+                  <AmountShow
+                    withDiscount
+                    className="text-sm font-semibold text-black sm:text-base md:text-xl"
+                    discount={product?.discount}
+                  >
+                    {product?.price}
+                  </AmountShow>
+                  {product?.discount && (
+                    <>
+                      <AmountShow className="italic line-through opacity-80">{product?.price}</AmountShow>
+                      <Chip
+                        color="green"
+                        value={`SAVE ${product?.discount}%`}
+                        size="sm"
+                        className="overflow-hidden py-0.5 sm:px-1.5 md:px-2 lg:py-1"
+                      />
+                    </>
+                  )}
+                </div>
               </CardHeader>
               <CardBody className="p-3">
                 <Typography className="truncate font-medium text-black">{product?.title}</Typography>
