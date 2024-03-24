@@ -17,7 +17,7 @@ const Header = () => {
   return (
     <>
       <Navbar
-        className="sticky top-0 z-40 mx-auto mb-2 rounded-b-md bg-gradient-to-t from-transparent to-blue-gray-50 p-2"
+        className="sticky top-0 z-40 mx-auto rounded-b-md bg-gradient-to-t from-transparent to-blue-gray-50 p-2"
         fullWidth
       >
         <div className="justify-item-between grid grid-cols-3 items-center">

@@ -7,7 +7,6 @@ const AmountShow = ({ children, className, withDiscount = false, discount = 0, v
     amount = Math.round((amount * (100 - disc)) / 100);
   }
 
-  const AmountOutput = createElement("p");
   return createElement(variant, { className: className }, `₹${amount}`);
 };
 

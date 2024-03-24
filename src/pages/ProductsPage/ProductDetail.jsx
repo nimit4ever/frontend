@@ -33,11 +33,15 @@ const ProductDetail = () => {
 
             <Card className="self-start">
               <CardHeader floated={false} shadow={false} className="text-center lg:text-left">
-                <h3 className="uppercase">{product?.title}</h3>
-                <h6 className="">
-                  <span>{product?.rating?.rate}</span>
-                  <StarRating value={product?.rating?.rate} readonly className="" />
-                </h6>
+                <h4 className="mb-2 uppercase">{product?.title}</h4>
+                <div className="inline-flex gap-2">
+                  <h6>{product?.rating?.rate}</h6>
+                  <StarRating
+                    value={product?.rating?.rate}
+                    readonly
+                    className="sm:h-4.5 sm:w-4.5 h-4 w-4 md:h-5 md:w-5"
+                  />
+                </div>
                 <h6>{`${product?.rating?.count} Reviews`}</h6>
 
                 <div className="flex flex-row items-center gap-2">
