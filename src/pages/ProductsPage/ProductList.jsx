@@ -29,16 +29,12 @@ const ProductList = () => {
                   <img src={product?.image[0].url} alt={product?.title} />
                 </Link>
                 {product?.discount && (
-                  <p
-                    className={`!absolute left-0 top-0 rounded-br-lg bg-red-900 px-1.5 py-1 font-light text-white shadow-lg md:px-2 md:text-sm`}
-                  >
+                  <p className="!absolute left-0 top-0 rounded-br-lg bg-red-900 px-1.5 py-1 font-light text-white shadow-lg md:px-2 md:text-sm">
                     {`${product.discount}% OFF`}
                   </p>
                 )}
                 {product?.newArrival && (
-                  <p
-                    className={`!absolute left-0 top-0 rounded-br-lg bg-pink-300 px-1.5 py-1 font-light text-white shadow-lg md:px-2 md:text-sm`}
-                  >
+                  <p className="!absolute left-0 top-0 rounded-br-lg bg-pink-300 px-1.5 py-1 font-light text-white shadow-lg md:px-2 md:text-sm">
                     {`NEW ARRIVAL`}
                   </p>
                 )}
