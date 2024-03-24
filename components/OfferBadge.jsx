@@ -15,11 +15,11 @@ const OfferBadge = ({ product }) => {
   }
 
   return (
-    <p
+    <div
       className={`!absolute left-0 top-0 rounded-br-lg ${color} px-1.5 py-1 font-light text-white shadow-lg md:px-2 md:text-sm`}
     >
       {text}
-    </p>
+    </div>
   );
 };
 
