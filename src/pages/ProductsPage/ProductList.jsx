@@ -3,7 +3,7 @@ import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faHeart as heartLine } from "@fortawesome/free-regular-svg-icons";
 import { faHeart as heartFilled } from "@fortawesome/free-solid-svg-icons";
 import { Link } from "react-router-dom";
-import { MetaData, Loader, StarRating, ToastMassage, AmountShow } from "../../../components/index.js";
+import { MetaData, Loader, OfferBadge, StarRating, ToastMassage, AmountShow } from "../../../components/index.js";
 import { useGetProductsQuery } from "../../../redux/api/productsApi.js";
 import { useEffect } from "react";
 const offset = Math.round(Math.random() * 80);
@@ -28,7 +28,9 @@ const ProductList = () => {
                 <Link to={`/products/${product?._id - 1}`}>
                   <img src={product?.image[0].url} alt={product?.title} />
                 </Link>
-                {product?.discount && (
+                <OfferBadge product={product} />
+
+                {/* {product?.discount && (
                   <p className="!absolute left-0 top-0 rounded-br-lg bg-red-900 px-1.5 py-1 font-light text-white shadow-lg md:px-2 md:text-sm">
                     {`${product.discount}% OFF`}
                   </p>
@@ -37,7 +39,7 @@ const ProductList = () => {
                   <p className="!absolute left-0 top-0 rounded-br-lg bg-pink-300 px-1.5 py-1 font-light text-white shadow-lg md:px-2 md:text-sm">
                     {`NEW ARRIVAL`}
                   </p>
-                )}
+                )} */}
 
                 <FontAwesomeIcon
                   icon={product?.wishlist ? heartFilled : heartLine}
