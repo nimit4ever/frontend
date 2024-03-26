@@ -1,4 +1,4 @@
-import { Card, CardBody, CardHeader, Chip } from "@material-tailwind/react";
+import { Card, CardBody, CardHeader } from "@material-tailwind/react";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faHeart as heartLine } from "@fortawesome/free-regular-svg-icons";
 import { faHeart as heartFilled } from "@fortawesome/free-solid-svg-icons";

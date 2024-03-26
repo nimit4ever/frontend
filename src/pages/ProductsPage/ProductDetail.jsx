@@ -31,91 +31,64 @@ const ProductDetail = () => {
           <div className="m-1 grid grid-cols-1 gap-2 lg:grid-cols-2">
             <ImageGallery image={product?.image}></ImageGallery>
 
-            <Card className="self-start">
-              <CardHeader floated={false} shadow={false} className="text-center lg:text-left">
-                <h4 className="mb-2 uppercase">{product?.title}</h4>
-                <div className="inline-flex gap-2">
+            <Card className="self-start text-center lg:text-left">
+              <CardHeader floated={false} shadow={false}>
+                <h4 className="mb-2 font-medium uppercase">{product?.title}</h4>
+                <div className="inline-flex items-baseline gap-2">
                   <h6>{product?.rating?.rate}</h6>
-                  <StarRating
-                    value={product?.rating?.rate}
-                    readonly
-                    className="sm:h-4.5 sm:w-4.5 h-4 w-4 md:h-5 md:w-5"
-                  />
+                  <StarRating value={product?.rating?.rate} readonly className="h-4 w-4 md:h-5 md:w-5" />
                 </div>
-                <h6>{`${product?.rating?.count} Reviews`}</h6>
-
-                <div className="flex flex-row items-center gap-2">
+                <p>{`${product?.rating?.count} Reviews`}</p>
+                <hr className="my-2" />
+              </CardHeader>
+              <CardBody className="flex flex-col items-start gap-2 p-4">
+                <div className="flex flex-row items-baseline gap-3">
                   <AmountShow
                     withDiscount
-                    className="text-sm font-semibold text-black sm:text-base md:text-xl"
+                    variant="h4"
+                    className="font-semibold text-black"
                     discount={product?.discount}
                   >
                     {product?.price}
                   </AmountShow>
-                  {product?.discount && (
-                    <>
-                      <AmountShow className="italic line-through opacity-80">{product?.price}</AmountShow>
-                      <Chip
-                        color="green"
-                        value={`SAVE ${product?.discount}%`}
-                        size="sm"
-                        className="overflow-hidden py-0.5 sm:px-1.5 md:px-2 lg:py-1"
-                      />
-                    </>
-                  )}
+                  <h6>{`incl. all Taxes`}</h6>
                 </div>
-              </CardHeader>
-              <CardBody className="p-3">
-                <Typography className="truncate font-medium text-black">{product?.title}</Typography>
-                <div className="mb-2 inline-flex items-center gap-2 text-sm text-blue-gray-500">
-                  <div>{product?.rating?.rate}</div>
-                  <Rating
-                    value={Math.round(product?.rating?.rate)}
-                    ratedIcon={<FontAwesomeIcon icon={starFilled} className="h-4 w-4" />}
-                    unratedIcon={<FontAwesomeIcon icon={starLine} className="h-4 w-4" />}
-                    readonly
-                  />
-                  <div>{`${product?.rating?.count} Reviews`}</div>
-                </div>
-                <div className="mb-3 flex flex-row gap-2">
-                  <Typography className="my-auto font-semibold text-black">
-                    &#8377;
-                    {product?.discount
-                      ? Math.round(Number(product?.price) * (100 - Number(product?.discount))) / 100
-                      : Number(product?.price)}
-                  </Typography>
-                  {product?.discount && (
-                    <>
-                      <Typography className="my-auto text-sm italic line-through opacity-80">
-                        &#8377;{Number(product?.price)}
-                      </Typography>
-                      <Chip color="green" value={`-${product?.discount}%`} size="sm" />
-                    </>
-                  )}
-                </div>
-                <div className="flex flex-row gap-2">
+                {product?.discount && (
+                  <>
+                    <p className="rounded-md bg-red-900 px-2 py-1 text-left text-white sm:px-2.5 md:px-2.5">{`Limited Time Deal`}</p>
+                    <div className="flex flex-row items-baseline">
+                      <h4 className="mr-2 text-red-900">{`-${product?.discount}%`}</h4>
+                      <h6 className="mr-1 italic opacity-80">MRP:</h6>
+                      <AmountShow variant="h6" className="italic line-through  opacity-80">
+                        {product?.price}
+                      </AmountShow>
+                    </div>
+                  </>
+                )}
+
+                <div className="mb-3 flex flex-row gap-2 self-stretch">
                   <IconButton
-                    size="sm"
                     ripple={true}
-                    className={`${product?.wishlist ? "bg-red-900/10" : "bg-gray-900/10"} px-4 text-blue-gray-900 shadow-none hover:scale-105 hover:shadow-none active:scale-100`}
+                    className={`${product?.wishlist ? "bg-red-900/10" : "bg-gray-900/10"} px-6 text-blue-gray-900 shadow-none hover:scale-105 hover:shadow-none`}
                   >
                     <FontAwesomeIcon
                       icon={product?.wishlist ? heartFilled : heartLine}
                       color={product?.wishlist ? "red" : "inherit"}
+                      className="h-5 w-5"
                     />
                   </IconButton>
                   <Button
-                    size="sm"
                     ripple={true}
                     fullWidth={true}
-                    className=" bg-gray-900/10 text-blue-gray-900 shadow-none hover:scale-105 hover:shadow-none active:scale-100"
+                    className="bg-gray-900/10 text-blue-gray-900 shadow-none duration-300 hover:scale-105 hover:shadow-none active:scale-100"
                   >
                     Add to Cart
                   </Button>
                 </div>
               </CardBody>
-              <CardFooter>
-                <Typography className="">{product?.description}</Typography>
+              <CardFooter divider className="p-4 text-justify">
+                <h6 className="text-black">DETAILS</h6>
+                <p>{product.description}</p>
               </CardFooter>
             </Card>
           </div>
