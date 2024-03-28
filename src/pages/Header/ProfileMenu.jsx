@@ -4,6 +4,7 @@ import { Menu, MenuHandler, MenuList, MenuItem, Button, Avatar, Typography } fro
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faUserCircle } from "@fortawesome/free-regular-svg-icons";
 import { faListCheck, faPowerOff } from "@fortawesome/free-solid-svg-icons";
+import profilePhoto from "../../assets/profilePhoto.png";
 
 const profileMenuItems = [
   {
@@ -37,7 +38,7 @@ const ProfileMenu = () => {
             size="sm"
             alt="tania andrew"
             className="border border-blue-gray-800 p-0.5"
-            src="/profilePhoto.png"
+            src={profilePhoto}
           />
         </Button>
       </MenuHandler>

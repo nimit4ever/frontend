@@ -1,5 +1,5 @@
 import { createApi, fetchBaseQuery } from "@reduxjs/toolkit/query/react";
-import { BACKEND_URL, API_KEY } from "../../config/constants";
+import { BACKEND_URL, API_KEY } from "../../config/constants.js";
 
 export const productApi = createApi({
   reducerPath: "productApi",
@@ -14,4 +14,4 @@ export const productApi = createApi({
   }),
 });
 
-export const { useGetProductsQuery, useGetProductDetailsQuery, useToggleInWishlistMutation } = productApi;
+export const { useGetProductsQuery, useGetProductDetailsQuery } = productApi;

@@ -2,6 +2,7 @@ import React, { useState } from "react";
 import { Navbar, Drawer, Avatar, Button, IconButton } from "@material-tailwind/react";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faBars, faXmark } from "@fortawesome/free-solid-svg-icons";
+import logo from "../../assets/logo.png";
 
 import NavList from "./NavList.jsx";
 
@@ -30,13 +31,7 @@ const Header = () => {
           </IconButton>
 
           <Button variant="text" className="flex items-center justify-self-center rounded-md p-0.5 text-blue-gray-700">
-            <Avatar
-              variant="circular"
-              size="md"
-              alt="DB6"
-              className="border border-blue-gray-800 p-0.5"
-              src="/logo.png"
-            />
+            <Avatar variant="circular" size="md" alt="DB6" className="border border-blue-gray-800 p-0.5" src={logo} />
             <span className="mx-2 hidden text-2xl md:block"> DB6 </span>
           </Button>
 

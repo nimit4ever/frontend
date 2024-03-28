@@ -1,20 +1,10 @@
-import {
-  Card,
-  CardHeader,
-  CardBody,
-  CardFooter,
-  Typography,
-  IconButton,
-  Button,
-  Rating,
-  Chip,
-} from "@material-tailwind/react";
+import { Card, CardHeader, CardBody, CardFooter, IconButton, Button } from "@material-tailwind/react";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { faHeart as heartLine, faStar as starLine } from "@fortawesome/free-regular-svg-icons";
-import { faHeart as heartFilled, faStar as starFilled } from "@fortawesome/free-solid-svg-icons";
+import { faHeart as heartLine } from "@fortawesome/free-regular-svg-icons";
+import { faHeart as heartFilled, faCartPlus } from "@fortawesome/free-solid-svg-icons";
 
-import { MetaData, StarRating, AmountShow } from "../../../components/index.js";
-import { useGetProductDetailsQuery } from "../../../redux/api/productsApi.js";
+import { MetaData, StarRating, AmountShow } from "../../components/index.js";
+import { useGetProductDetailsQuery } from "../../redux/api/productsApi.js";
 import { useParams } from "react-router-dom";
 import ImageGallery from "./ImageGallery.jsx";
 
@@ -66,29 +56,53 @@ const ProductDetail = () => {
                   </>
                 )}
 
-                <div className="mb-3 flex flex-row gap-2 self-stretch">
+                <div className="flex items-center gap-3">
+                  <Button
+                    size="lg"
+                    color="red"
+                    variant="outlined"
+                    className="flex items-center gap-3 self-stretch px-3 py-2 text-base"
+                    ripple
+                  >
+                    <FontAwesomeIcon icon={product?.wishlist ? heartFilled : heartLine} />
+                    <div className="hidden sm:block">Add to Wishlist</div>
+                  </Button>
+                  <Button
+                    size="lg"
+                    color="blue-gray"
+                    variant="outlined"
+                    className="flex items-center gap-3 px-3 py-2 text-base duration-500 hover:bg-blue-gray-800 hover:text-white"
+                    ripple
+                  >
+                    <FontAwesomeIcon icon={faCartPlus} />
+                    <div>Add to Cart</div>
+                  </Button>
+                </div>
+
+                {/* <div className="mb-3 flex flex-row items-center gap-2">
                   <IconButton
+                    size="sm"
                     ripple={true}
-                    className={`${product?.wishlist ? "bg-red-900/10" : "bg-gray-900/10"} px-6 text-blue-gray-900 shadow-none hover:scale-105 hover:shadow-none`}
+                    className={`${product?.wishlist ? "bg-red-900/10" : "bg-gray-900/10"} px-5 text-blue-gray-900 shadow-none hover:scale-105 hover:shadow-none`}
                   >
                     <FontAwesomeIcon
                       icon={product?.wishlist ? heartFilled : heartLine}
                       color={product?.wishlist ? "red" : "inherit"}
-                      className="h-5 w-5"
                     />
                   </IconButton>
                   <Button
+                    size="sm"
                     ripple={true}
                     fullWidth={true}
-                    className="bg-gray-900/10 text-blue-gray-900 shadow-none duration-300 hover:scale-105 hover:shadow-none active:scale-100"
+                    className="bg-gray-900/10 text-blue-gray-900 shadow-none duration-300 hover:scale-105 hover:shadow-none active:scale-100 md:text-sm"
                   >
                     Add to Cart
                   </Button>
-                </div>
+                </div> */}
               </CardBody>
               <CardFooter divider className="p-4 text-justify">
                 <h6 className="text-black">DETAILS</h6>
-                <p>{product.description}</p>
+                <h6>{product.description}</h6>
               </CardFooter>
             </Card>
           </div>
